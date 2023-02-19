@@ -1,6 +1,7 @@
 const holes = document.querySelectorAll('.hole');
 const scoreBoard = document.querySelector('.score');
 const moles = document.querySelectorAll('.mole');
+const buttonName = document.querySelector('.start-button');
 let lastHole;
 let timeUp = false;
 let score = 0;
@@ -24,8 +25,10 @@ function peep() {
   const hole = randomHole(holes);
   hole.classList.add('up');
   setTimeout(() => {
+    buttonName.textContent = 'Start';
     hole.classList.remove('up');
     if(!timeUp) peep();
+    else startAgain();
   }, time)
 }
 
@@ -43,6 +46,14 @@ function bonk(e) {
     score++;
     this.classList.remove('up');
     scoreBoard.textContent = score;
+}
+
+function startAgain() {
+  {
+    if (timeUp === true) {
+      buttonName.textContent = 'Start Again!'
+    }
+  }
 }
 
 moles.forEach(mole => mole.addEventListener('click', bonk));
