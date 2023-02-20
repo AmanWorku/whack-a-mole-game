@@ -2,6 +2,7 @@ const holes = document.querySelectorAll('.hole');
 const scoreBoard = document.querySelector('.score');
 const moles = document.querySelectorAll('.mole');
 const buttonName = document.querySelector('.start-button');
+const highScore = document.querySelector('.high');
 let lastHole;
 let timeUp = false;
 let score = 0;
