@@ -3,6 +3,7 @@ const scoreBoard = document.querySelector('.score');
 const moles = document.querySelectorAll('.mole');
 const buttonName = document.querySelector('.start-button');
 const highScore = document.querySelector('.high');
+const username = document.getElementById('username').value;
 let lastHole;
 let timeUp = false;
 let score = 0;
@@ -64,6 +65,10 @@ function addScore (){
   else {
     listArr = JSON.parse(storedData);
   }
+
+  const userScore = {uname: username, score: score};
+  listArr.push(userScore);
+  localStorage.setItem('data', JSON.stringify(listArr));
 }
 
 moles.forEach(mole => mole.addEventListener('click', bonk));
