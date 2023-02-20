@@ -5,10 +5,17 @@ const buttonName = document.querySelector('.start-button');
 const highScore = document.querySelector('.high');
 const username = document.getElementById('username').value;
 const userlist = document.querySelector('.user-list');
+const game = document.querySelector('.game');
+const form = document.querySelector('.form');
+const submitButton = document.querySelector('.submit-button');
+
 let lastHole;
 let timeUp = false;
 let score = 0;
 let listArr;
+
+form.style.display = 'none';
+
 function randTime(min, max){
   return Math.round(Math.random() * (max - min) + min);
 }
@@ -53,11 +60,11 @@ function bonk(e) {
 }
 
 function startAgain() {
-  {
     if (timeUp === true) {
       buttonName.textContent = 'Start Again!'
+      game.style.display = 'none';
+      form.style.display = 'block';
     }
-  }
 }
 
 function addScore (){
