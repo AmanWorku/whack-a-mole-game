@@ -6,6 +6,7 @@ const highScore = document.querySelector('.high');
 let lastHole;
 let timeUp = false;
 let score = 0;
+let listArr;
 function randTime(min, max){
   return Math.round(Math.random() * (max - min) + min);
 }
@@ -54,6 +55,14 @@ function startAgain() {
     if (timeUp === true) {
       buttonName.textContent = 'Start Again!'
     }
+  }
+}
+
+function addScore (){
+  const storedData = localStorage.getItem('data');
+  if (listArr === null) listArr = [];
+  else {
+    listArr = JSON.parse(storedData);
   }
 }
 
